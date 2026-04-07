@@ -1,5 +1,5 @@
 import { append } from 'vary';
-import { HttpError } from 'http-errors';
+import type { HttpError } from 'http-errors';
 import type { Context, Next, Middleware } from 'koa';
 
 export interface Options {
@@ -67,6 +67,8 @@ export default function cors(options: Options): Middleware {
                 ctx.throw(403);
             origin = requestOrigin;
         } else if (typeof pluginOptions.origin === 'string') {
+            if (pluginOptions.origin !== requestOrigin && pluginOptions.origin !== '*')
+                ctx.throw(403);
             origin = pluginOptions.origin;
         } else ctx.throw(403);
 
@@ -102,11 +104,17 @@ export default function cors(options: Options): Middleware {
                 return await next();
             } catch (err: unknown) {
                 const errorHeaders: Headers = (err as HttpError)?.headers || {};
-                const vary: string = append(errorHeaders['vary'] || errorHeaders['Vary'] || '', 'Origin');
+                const varyHeader: string = errorHeaders['Vary'] || errorHeaders['vary'] || '';
+                const mergedVaryHeader: string = append(varyHeader, 'Origin');
 
-                if (err instanceof HttpError)
-                    err.headers = { ...errorHeaders, ...corsHeaders, vary };
-                else (err as HttpError).headers = { ...corsHeaders, vary };
+                delete errorHeaders['Vary'];
+                delete errorHeaders['vary'];
+
+                (err as HttpError).headers = {
+                    ...errorHeaders,
+                    ...corsHeaders,
+                    vary: mergedVaryHeader
+                };
 
                 throw err;
             }

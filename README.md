@@ -107,15 +107,15 @@ export interface Options {
  * CORS middleware default configuration options.
  */
 const defaultOptions: Options = {
-        origin: '*',
-        allowMethods: ['HEAD', 'POST', 'GET', 'PATCH', 'PUT', 'DELETE'],
-        maxAge: '3600',
-        credentials: false,
-        privateNetworkAccess: false,
-        originOpenerPolicy: false,
-        originEmbedderPolicy: false,
-        keepHeadersOnError: true
-    };
+    origin: '*',
+    allowMethods: ['HEAD', 'POST', 'GET', 'PATCH', 'PUT', 'DELETE'],
+    maxAge: '3600',
+    credentials: false,
+    privateNetworkAccess: false,
+    originOpenerPolicy: false,
+    originEmbedderPolicy: false,
+    keepHeadersOnError: true
+};
 ```
 
 ## Usage
@@ -137,6 +137,16 @@ app.use(
 
 app.listen(3000);
 ```
+
+## Tests
+
+```bash
+$ bun test
+```
+
+## Releases
+
+[CHANGELOG](./CHANGELOG.md)
 
 ## License
 

@@ -84,6 +84,6 @@
         "pretty": true,
         "skipLibCheck": true
     },
-    "include": ["src/**/*.ts", "src/**/*.mts", "dist/index.d.ts"],
-    "exclude": ["node_modules", "__out", "build", "__out"]
+    "include": ["src/**/*.ts", "src/**/*.mts"],
+    "exclude": ["node_modules", "build"]
 }
