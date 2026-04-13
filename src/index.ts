@@ -55,13 +55,13 @@ export default function cors(options: Options): Middleware {
         ? String(pluginOptions.maxAge)
         : null;
 
-    const originType: string = typeof pluginOptions.origin;
-    const isOriginArray: boolean = Array.isArray(pluginOptions.origin);
-
     const resolveOrigin: OriginResolver = createOriginResolver();
     const resolveCredentials: CredentialsResolver = createCredentialsResolver();
 
     function createOriginResolver(): OriginResolver {
+        const originType: string = typeof pluginOptions.origin;
+        const isOriginArray: boolean = Array.isArray(pluginOptions.origin);
+
         if (originType === 'string')
             return matchOriginFromString;
         else if (originType === 'function')
