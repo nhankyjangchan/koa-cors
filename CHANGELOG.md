@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 The project adheres to [Semantic Versioning](https://semver.org).
 
+## **1.3.2** / 2026-04-13
+
+### Changed
+
+- **Code Cleanup**: Moved `originType` and `isOriginArray` constant initialization inside the `createOriginResolver` factory function. This is a cosmetic refactor that does not alter runtime behavior or performance characteristics; it simply keeps the variable declarations closer to their usage scope within the resolver factory.
+- **Package Metadata**: Updated the `keywords` array in `package.json` to correct the casing of the package name. This change affects only npm search indexing and does not impact the middleware's functional logic.
+- **CommonJS Build Output**: The compiled `index.cjs` file now includes a `'use strict'` directive. This ensures strict mode compliance for legacy CommonJS environments and aligns the build artifact with modern JavaScript best practices, while having zero impact on the middleware's API or functional behavior.
+
+### Info
+
+- **No Functional Impact**: The changes in this release are limited to internal code organization, package manifest metadata, and build artifact formatting. There are no changes to API contracts, request handling logic, or type definitions. Existing tests (49/49) continue to pass without modification.
+
 ## **1.3.1** / 2026-04-12
 
 ### Fixed
@@ -28,7 +40,7 @@ The project adheres to [Semantic Versioning](https://semver.org).
 
 - **Dynamic Origin Resolution**: The `origin` option now accepts a function `(ctx: Context) => string | Promise<string>`, allowing for asynchronous and context-aware origin validation (e.g., database lookups or complex whitelist logic).
 - **Conditional Skipping**: Added `shouldSkip` option. Accepts a function `(ctx: Context) => boolean | Promise<boolean>` to bypass CORS headers entirely for specific requests (e.g., static assets or internal health checks) without executing origin validation logic.
-- **Tests**: Added 4 new test cases specifically for the function-based `origin` option, all passed successfully;
+- **Tests**: Added 4 new test cases specifically for the function-based `origin` option, all passed successfully
 
 ### Changed
 
