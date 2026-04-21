@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 The project adheres to [Semantic Versioning](https://semver.org).
 
+## **1.4.3** / 2026-04-21
+
+### Info
+
+- **Documentation**: The `README.md` file has been updated with improved visual hierarchy and readability.
+- **Development Files**: Updated `.gitignore` and `.prettierignore` to reflect current project structure and tooling preferences.
+- **No Functional Changes**: This release includes only documentation and metadata improvements. The middleware logic, public API, and test suite remain unchanged from v1.4.2.
+
 ## **1.4.2** / 2026-04-18
 
 ### Added

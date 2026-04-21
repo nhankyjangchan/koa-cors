@@ -1,6 +1,6 @@
 # @nhankyjangchan/koa-cors
 
-> **📦 Formerly published as [@nhankyjangchan/koajs-cors](https://www.npmjs.com/package/@nhankyjangchan/koajs-cors), which is now a legacy package.** Instead of it, use **[current package](https://www.npmjs.com/package/@nhankyjangchan/koa-cors)**
+> **📌 Formerly published as [@nhankyjangchan/koajs-cors](https://www.npmjs.com/package/@nhankyjangchan/koajs-cors), which is now a legacy package.** Instead of it, use **[current package](https://www.npmjs.com/package/@nhankyjangchan/koa-cors)**
 
 [![npm version](https://img.shields.io/npm/v/%40nhankyjangchan%2Fkoa-cors?style=for-the-badge&logo=npm&color=blue)](https://www.npmjs.com/package/@nhankyjangchan/koa-cors)
 [![github repo](https://img.shields.io/badge/github-repo-blue?logo=github&style=for-the-badge)](https://github.com/nhankyjangchan/koa-cors)
@@ -17,7 +17,7 @@ Handles CORS requests by setting appropriate headers for both simple requests an
 
 Automatically adds a `Vary: Origin` header to all responses to ensure proper caching behaviour when different origins may receive different headers.
 
-**Features:**
+## ✨ Features
 
 - Static or dynamic origin validation (string, array, or function, including async)
 - Automatic rejection of unauthorized origins (403) and invalid configuration (500)
@@ -35,7 +35,7 @@ Automatically adds a `Vary: Origin` header to all responses to ensure proper cac
 
 > This package was previously published as **`@nhankyjangchan/koajs-cors`**. Starting with v1.4.0, this package has been migrated to a new name: **[@nhankyjangchan/koa-cors](https://www.npmjs.com/package/@nhankyjangchan/koa-cors)**. If you're still using legacy **[@nhankyjangchan/koajs-cors](https://www.npmjs.com/package/@nhankyjangchan/koajs-cors)**, please migrate to new package — [it](https://www.npmjs.com/package/@nhankyjangchan/koajs-cors) is now deprecated and receives security fixes only. Migration is seamless, just install the **[new package](https://www.npmjs.com/package/@nhankyjangchan/koa-cors)** and swap the package name in your `package.json` and import statements. The API remains unchanged.
 
-## Installation
+## 📦 Installation
 
 ```bash
 $ npm i @nhankyjangchan/koa-cors
@@ -53,7 +53,7 @@ or for legacy package
 $ npm i @nhankyjangchan/koajs-cors
 ```
 
-## Options
+## ⚙️ Options
 
 ```ts
 /**
@@ -188,7 +188,7 @@ export interface Options {
 }
 ```
 
-## Default options
+## 🔧 Default options
 
 ```ts
 /**
@@ -207,7 +207,7 @@ const defaultOptions: Options = {
 };
 ```
 
-## Usage
+## 🛠️ Usage
 
 ```ts
 /**
@@ -252,16 +252,16 @@ app.use(cors);
 app.listen(3000);
 ```
 
-## Tests
+## 🧪 Tests
 
 ```bash
 $ bun test --coverage
 ```
 
-## Releases
+## 📋 Releases
 
 [CHANGELOG](./CHANGELOG.md)
 
-## License
+## 📄 License
 
 [MIT](./LICENSE)
